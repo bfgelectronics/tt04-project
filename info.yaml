@@ -31,7 +31,8 @@ documentation:
       If the load is high, the design will load the specified hex char(input data pins) at the specified location in memory (input char position), therwise the design will go trough the display columns and represent the chars using the internal character map.
       The design should be reseted before use
 # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
-  how_to_test:  |
+  how_to_test: 
+  	Use the input data to add chars to the internal memory.
 
 
 # A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
