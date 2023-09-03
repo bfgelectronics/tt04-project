@@ -8,8 +8,8 @@ module char_multiplexer_display(
     output reg [3:0] line
 );
 
-    reg [1:0] chars_to_display [3:0];
-    reg [15:0] charmap [3:0];
+    reg [3:0] chars_to_display [3:0];
+    reg [15:0] charmap [15:0];
     reg [1:0] current_character;
     reg [1:0] current_character_column;
 
@@ -45,12 +45,15 @@ module char_multiplexer_display(
             column_to_display_count <= current_character * 4 + current_character_column;
 
             line <= {
-                charmap[chars_to_display[current_character]][3-current_character_column],
-                charmap[chars_to_display[current_character]][7-current_character_column],
+                charmap[chars_to_display[current_character]][15-current_character_column],
                 charmap[chars_to_display[current_character]][11-current_character_column],
-                charmap[chars_to_display[current_character]][15-current_character_column]
+                charmap[chars_to_display[current_character]][7-current_character_column],
+                charmap[chars_to_display[current_character]][3-current_character_column]
                 
             };
+
+            $display("chars_to_display[%d | %b] = %d", current_character, current_character, chars_to_display[current_character]);
+
 
             if(current_character_column == 2'b11) begin
                 if(current_character == 2'b11) begin
