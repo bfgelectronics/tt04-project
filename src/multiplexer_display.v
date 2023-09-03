@@ -8,8 +8,8 @@ module char_multiplexer_display(
     output reg [3:0] line
 );
 
-    reg [3:0] chars_to_display [3:0];
-    reg [15:0] charmap [15:0];
+  reg [3:0] chars_to_display [4];
+  reg [15:0] charmap [16];
     reg [1:0] current_character;
     reg [1:0] current_character_column;
 
